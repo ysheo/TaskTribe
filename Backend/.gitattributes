@@ -1,2 +1,2 @@
 # Ignore all differences in line endings
-* text=auto eol=crlf
+* text=auto eol=lf
