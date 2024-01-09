@@ -5,19 +5,19 @@ export class User{
     @PrimaryGeneratedColumn()
     uid : number;
 
-    @Column()
+    @Column({unique:true, type: 'varchar', length: 50})
     userid : string;
 
-    @Column()
+    @Column({type: 'varchar', length: 255})
     password : string;
     
-    @Column()
+    @Column({type: 'varchar', length: 50})
     name : string;
 
-    @Column()
+    @Column({unique:true,type: 'varchar', length: 100})
     email : string;
 
-    @Column()
+    @Column({type: 'varchar', length: 10})
     regnum : string;
     
 }

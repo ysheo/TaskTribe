@@ -3,12 +3,13 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
 import { UserModule } from './user/user.module';
 import { User } from './user/user.entity';
+import { Mail } from './user/mail.entity';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
       isGlobal: true, // 전체적으로 사용하기 위해
-      envFilePath:'.env.development',
+      envFilePath:['.env.development', '.env.stmp'],
     }),
     TypeOrmModule.forRoot({
       type: 'mysql',
@@ -17,10 +18,10 @@ import { User } from './user/user.entity';
       username: process.env.DB_USERNAME,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_NAME, 
-      entities : [User],
+      entities : [User,Mail],
       synchronize: true, 
     }), 
-    UserModule
+    UserModule,    
   ],
   controllers: [],
   providers: [],
