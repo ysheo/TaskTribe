@@ -1,0 +1,53 @@
+@charset "utf-8";
+/*Login 문자*/
+#loginwrap{
+    padding: 50px 22px;
+    box-sizing: border-box;
+}
+.logintext{
+    display: flex;
+    width: 116px;
+    height: 31px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    color: #666;
+    text-align: center;
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/*아이디 입력 창*/
+#idwrap{
+    padding: 0px 31px;
+}
+.idbox{
+    width: 316px;
+    height: 49px;
+    flex-shrink: 0;
+    line-height: normal;
+    border-radius: 10px;
+    border: 1px solid #C1C1C1;
+    box-sizing: border-box
+}
+.idtext{
+    text-align: left;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+}
+#iconwrap{
+    padding: 50px px;
+}
+.idicon{
+    width: 25.113px;
+    height: 24px;
+    flex-shrink: 0;
+}
+

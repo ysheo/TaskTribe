@@ -1,0 +1,23 @@
+@charset "utf-8";
+/* 390px 시작 (모바일) */
+#wrap{
+    padding: 40px 17px;
+}
+.logo{
+    color: #CB91F8;
+    font-size: 40px;
+    font-weight: 900;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+
+/* 768px 시작 (태블릿) */
+@media screen and (min-width:768px){
+
+}
+
+/* 1024px 시작 (PC) */
+@media screen and (min-width:1024px){
+
+}
