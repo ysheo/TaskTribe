@@ -56,6 +56,30 @@ const Join = () => {
                         </div>
                     </div>
                 </fieldset>
+                <fieldset>
+                    <div className="all_agree">
+                        <div>
+                            <span class="material-symbols-outlined">check_circle</span>
+                            <p>전체 동의하기</p>
+                        </div>
+                        <p className="agree">이용약관(필수), 개인정보 수집 및 이용(필수)의 동의를 포함합니다.</p>
+                    </div>
+                    <div className="use_agree">
+                        <div>
+                            <span class="material-symbols-outlined">check_circle</span>
+                            <p>이용약관<span>(필수)</span></p>
+                        </div>
+                        <p className="agree_scroll">Task Tribe Task Tribe Task Tribe Task Tribe Task Tribe Task Tribe Task Tribe Task Tribe Task Tribe Task Tribe Task Tribe Task Tribe Task Tribe Task Tribe Task Tribe Task Tribe Task Tribe Task Tribe Task Tribe Task Tribe Task Tribe Task Tribe Task Tribe Task Tribe Task Tribe Task Tribe Task Tribe Task Tribe Task Tribe Task Tribe Task Tribe Task Tribe Task Tribe Task Tribe Task Tribe Task Tribe </p>
+                    </div>
+                    <div className="info_agree">
+                        <div>
+                            <span class="material-symbols-outlined">check_circle</span>
+                            <p>개인정보 수집 및 이용<span>(필수)</span></p>
+                        </div>
+                        <p className="agree_scroll">Task Tribe Task Tribe Task Tribe Task Tribe Task Tribe Task Tribe Task Tribe Task Tribe Task Tribe Task Tribe Task Tribe Task Tribe Task Tribe Task Tribe Task Tribe Task Tribe Task Tribe Task Tribe Task Tribe Task Tribe Task Tribe Task Tribe Task Tribe Task Tribe Task Tribe Task Tribe Task Tribe Task Tribe Task Tribe Task Tribe Task Tribe Task Tribe Task Tribe Task Tribe Task Tribe Task Tribe </p>
+                    </div>
+                </fieldset>
+                <button type="submit">회원가입 하기</button>
             </form>
         </div>
     )

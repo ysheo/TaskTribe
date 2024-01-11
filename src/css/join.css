@@ -1,3 +1,7 @@
+.join{
+    max-width: 450px;
+    margin: 0 auto;
+}
 .join p{
     color: #666;
 }
@@ -12,9 +16,6 @@
     outline: none;
 }
 .join .material-symbols-outlined{
-    position: absolute;
-    top: 4px;
-    right: 5px;
     color: #ccc;
 }
 .join .warn_box{
@@ -42,6 +43,7 @@
 }
 .join fieldset{
     width: 100%;
+    margin-bottom: 20px;
 }
 .join fieldset > div {
     width: 100%;
@@ -50,6 +52,11 @@
 .join fieldset > div > p {
     width: 25%;
     line-height: 30px;
+}
+.join .id_box .material-symbols-outlined, .join .pw2_box .material-symbols-outlined{
+    position: absolute;
+    top: 4px;
+    right: 5px;
 }
 .id_box, .pw1_box, .pw2_box, .email_box, .name_box, .RRN_box, .RRN_box > div{
     display: flex;
@@ -105,3 +112,46 @@
 .join .RRN_box span{
     color: #ccc;
 }
+.join fieldset:nth-of-type(2) > div > div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+.join fieldset:nth-of-type(2) p{
+    width: 100%;
+}
+.join fieldset:nth-of-type(2) > div .material-symbols-outlined{
+    margin-right: 5px;
+}
+.join fieldset:nth-of-type(2) > div > div > p > span{
+    margin-left: 3px;
+    color: #32AC72;
+    font-size: 10px
+}
+.join .all_agree > p {
+    padding: 0 20px;
+    box-sizing: border-box;
+    font-size: 12px;
+    line-height: 1em;
+}
+.join fieldset:nth-of-type(2) .agree_scroll{
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    overflow: scroll;
+    font-size: 12px;
+    line-height: 1.3em;
+}
+.join form button{
+    width: 100%;
+    background-color: #CB91F8;
+    border-radius: 7px;
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+    line-height: 40px;
+}
+
