@@ -1,20 +1,20 @@
-import './css/join.css'
+import "../css/join.css"
 
 const Join = () => {
     return(
         <div className="join">
             <h3>Sign Up</h3>
-            <form className='personal_info'>
+            <form className='personal_info' action="#" method="post">
                 <fieldset>
                     <div className='id_box'>
                         <p>아이디</p>
                         <div>
                             <div>
-                                <input type='text'></input>
+                                <input type='text' name="" id="" title="아이디 입력" required />
                                 <span class="material-symbols-outlined">check_circle</span>
                             </div>
                             <div className='warn_box'>
-                                <p className='success'>사용가능한 아이디입니다.</p>
+                                <p className='success'>사용 가능한 아이디입니다.</p>
                                 <p className='fail'>사용 불가능한 아이디 입니다.</p>
                             </div>
                         </div>

@@ -96,9 +96,11 @@
 }
 .join .RRN_box .RRN1{
     width: 50%;
+    appearance: none;
 }
 .join .RRN_box .RRN2{
     width: 10%;
+    appearance: none;
 }
 .join .RRN_box span{
     color: #ccc;
