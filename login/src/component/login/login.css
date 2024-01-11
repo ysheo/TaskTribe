@@ -21,33 +21,43 @@
     line-height: normal;
     font-family: Arial, Helvetica, sans-serif;
 }
-
-/*아이디 입력 창*/
-#idwrap{
-    padding: 0px 31px;
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: white;
 }
-.idbox{
+
+.loginwrap .inputbox{
+    position: relative;
     width: 316px;
     height: 49px;
     flex-shrink: 0;
-    line-height: normal;
-    border-radius: 10px;
+    margin: 14px 0;
     border: 1px solid #C1C1C1;
-    box-sizing: border-box
+    border-radius: 10px;
 }
-.idtext{
-    text-align: left;
-    font-family: Inter;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
+
+.inputbox input{
+    display: flex;
+    width: 85%;
+    height: 100%;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    transform: translateX(18%);
 }
-#iconwrap{
-    padding: 50px px;
-}
-.idicon{
+
+.inputbox .icon{
+    position: absolute;
     width: 25.113px;
     height: 24px;
     flex-shrink: 0;
-}
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    
 
+}

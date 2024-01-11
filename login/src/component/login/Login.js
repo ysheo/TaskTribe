@@ -11,10 +11,11 @@ const Login = () => {
     
 
         return(
-        <div className="login">
-             <div id = 'loginwrap'>
-            <h3 className='logintext'>LogIn</h3>
-
+            <body>
+        <div className="loginwrap">
+            <form action=''>
+             <h3 className='logintext'>LogIn</h3>
+             
             <div className='inputbox'>
             <FaUser className='icon' />
             <input type="text" placeholder='아이디' required />
@@ -30,11 +31,12 @@ const Login = () => {
             </div>
 
             <button type='submit'>로그인</button>
-          
+            
+            </form>
             </div>
             
-        </div>
-
+       
+        </body>
 
     )
 }
