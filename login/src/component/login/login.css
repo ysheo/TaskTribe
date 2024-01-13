@@ -4,6 +4,7 @@
     padding: 50px 22px;
     box-sizing: border-box;
 }
+
 .logintext{
     display: flex;
     width: 50px;
@@ -21,12 +22,13 @@
     line-height: normal;
     font-family: Arial, Helvetica, sans-serif;
 }
+
 body{
     font-family: Arial, Helvetica, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    min-height: 60vh;
     background: white;
 }
 
@@ -59,17 +61,18 @@ body{
     left: 10px;
     top: 50%;
     transform: translateY(-50%);
+    color: #C1C1C1;
 }
 
 .loginwrap .remember {
     display: flex;
-    font-size: 18px;
+    font-size: 14px;
     margin: 20px 0 15px;
 }
 
 .remember label input {
-    width: 25px;
-    height: 20px;
+    width: 22px;
+    height: 18px;
     flex-shrink: 0;
     accent-color: #cb91f8;
     margin-right: 5px;
@@ -86,4 +89,17 @@ body{
     font-style: normal;
     font-weight: 600;
     color: #fff;
+}
+
+.searchbox {
+    display: flex;
+    text-align: center;
+    font-size: 15px;
+    justify-content: center;
+    margin-top: 10%;
+}
+
+.searchbox a{
+    display: flex;
+    margin: 1.5%;
 }
