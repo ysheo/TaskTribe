@@ -1,11 +1,13 @@
 @charset "utf-8";
 /* 390px 시작 (모바일) */
 #wrap{
+    width: 100%;
     padding: 40px 17px;
+    box-sizing: border-box;
 }
 .logo{
     color: #CB91F8;
-    font-size: 40px;
+    font-size: 24px;
     font-weight: 900;
     text-align: center;
     margin-bottom: 10px;

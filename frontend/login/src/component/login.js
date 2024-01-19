@@ -1,11 +1,8 @@
-import './login.css';
+import '../css/login.css';
 import { FaUser } from "react-icons/fa";
 import { RiLockPasswordLine } from "react-icons/ri";
 import { Link } from 'react-router-dom';
-//import {Link} from 'react-router-dom';
-//import {reactComponent as Icon} from "http://www.w3.org/2000/svg";
-//import user_icon from 'http://www.w3.org/2000/svg'
-//import MaterialIcon from 'react-google-material-icons'
+
 
 
 const Login = () => {
