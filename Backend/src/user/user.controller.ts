@@ -20,14 +20,9 @@ export class UserController {
         await this.userService.sendVerificationCode(user.email, user.userid);      
     }
 
-    @Get('/duplicate')
-    async IDVarify( @Query('id') id: string): Promise<string> {
-      let result = await this.userService.duplicateCheck({userid:id});
-      return result;
-    }
-
-    @Post('/id')
+    @Post('/duplicate')
     async duplicateCheck(@Body() dto: any): Promise<string> {
+      //console.log(dto);
       let result = await this.userService.duplicateCheck(dto);
       return result;
     }
