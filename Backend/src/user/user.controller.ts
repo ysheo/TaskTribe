@@ -18,7 +18,7 @@ export class UserController {
 
     @Post('/email')
     async emailCheck(@Body() user: any): Promise<string> {      
-      let result = await this.userService.duplicateCheck({email:user.email});
+      let result = await this.userService.duplicateEmailCheck({email:user.email});
       if (result ==='중복') return result;
       await this.userService.sendVerificationCode(user.email); 
     }

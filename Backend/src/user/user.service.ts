@@ -45,13 +45,21 @@ export class UserService {
         return;
       }
 
-    async duplicateCheck(dynamicCondition: any) : Promise<string> {
-        let count = this.userRepository.count({
+    async duplicateEmailCheck(dynamicCondition: any) : Promise<string> {
+        let count = this.emailRepository.count({
             where : dynamicCondition,        
         });
 
         return await count > 0 ? '중복' : '';
     }
+
+    async duplicateCheck(dynamicCondition: any) : Promise<string> {
+      let count = this.userRepository.count({
+          where : dynamicCondition,        
+      });
+
+      return await count > 0 ? '중복' : '';
+  }
 
     async create(user:CreateUserDto) {
         let ecrypt = new Ecrypt();
