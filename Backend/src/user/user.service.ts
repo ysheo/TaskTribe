@@ -25,7 +25,7 @@ export class UserService {
         return Math.floor(100000 + Math.random() * 900000).toString();
     }
 
-    async sendVerificationCode(email: string, userId : string): Promise<void> {
+    async sendVerificationCode(email: string): Promise<void> {
         const verificationCode = await this.generateVerificationCode();
         await this.emailService.sendVerificationToEmail(
             email,
@@ -33,11 +33,13 @@ export class UserService {
         );
 
         const json = {
-            user: { email: email  },
+            email: email,
             token: verificationCode,
             auth: false, // or false depending on your needs
             sessionStart: new Date(), // Replace with the actual date
           };
+        
+        //console.log(json);
 
         await this.emailRepository.save(json);
         return;

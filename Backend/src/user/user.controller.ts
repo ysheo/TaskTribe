@@ -17,11 +17,10 @@ export class UserController {
     }
 
     @Post('/email')
-    async emailCheck(@Body() user: CreateUserDto): Promise<string> {
+    async emailCheck(@Body() user: any): Promise<string> {      
       let result = await this.userService.duplicateCheck({email:user.email});
       if (result ==='중복') return result;
-
-      await this.userService.sendVerificationCode(user.email, user.userid); 
+      await this.userService.sendVerificationCode(user.email); 
     }
 
     @Post('/duplicate')
