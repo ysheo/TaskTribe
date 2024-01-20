@@ -50,7 +50,7 @@ export class UserService {
             where : dynamicCondition,        
         });
 
-        return await count > 0 ? '중복' : '';
+        return await count > 0 ? '인증 메일 전송 완료' : '';
     }
 
     async duplicateCheck(dynamicCondition: any) : Promise<string> {
