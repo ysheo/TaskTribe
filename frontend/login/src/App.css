@@ -1,6 +1,6 @@
 @charset "utf-8";
 /* 390px 시작 (모바일) */
-#wrap{
+.App{
     width: 100%;
     padding: 40px 17px;
     box-sizing: border-box;
@@ -11,6 +11,11 @@
     font-weight: 900;
     text-align: center;
     margin-bottom: 100px;
+}
+.title{
+    width: 100%;
+    padding: 40px 17px;
+    box-sizing: border-box;
 }
 
 

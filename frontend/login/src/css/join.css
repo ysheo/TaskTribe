@@ -1,0 +1,157 @@
+.join{
+    max-width: 450px;
+    margin: 0 auto;
+}
+.join p{
+    color: #666;
+}
+.join input{
+    width: 100%;
+    padding: 0 10px;
+    box-sizing: border-box;
+    border-radius: 7px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    line-height: 30px;
+    outline: none;
+}
+.join .material-symbols-outlined{
+    color: #ccc;
+}
+.join .warn_box{
+    padding: 5px 0;
+}
+.join .success{
+    /* display: none; */
+    color: #CB91F8;
+    font-size: 10px;
+    line-height: 1.1em;
+}
+.join .fail{
+    /* display: none; */
+    color: #F93737;
+    font-size: 10px;
+    line-height: 1.1em;
+}
+.join > h3{
+    margin-bottom: 10px;
+    color: #666;
+    font-size: 18px;
+}
+.join form{
+    margin-bottom: 20px;
+}
+.join fieldset{
+    width: 100%;
+    margin-bottom: 20px;
+}
+.join fieldset > div {
+    width: 100%;
+    margin-bottom: 10px;
+}
+.join fieldset > div > p {
+    width: 25%;
+    line-height: 30px;
+}
+.join .id_box .material-symbols-outlined, .join .pw2_box .material-symbols-outlined{
+    position: absolute;
+    top: 4px;
+    right: 5px;
+}
+.id_box, .pw1_box, .pw2_box, .email_box, .name_box, .RRN_box, .RRN_box > div{
+    display: flex;
+    justify-content: space-between;
+}
+.id_box > div, .pw1_box input, .pw2_box > div, .email_box > div, .name_box input, .RRN_box > div {
+    width: 75%;
+}
+.join fieldset .id_box, .join fieldset .pw2_box, .join fieldset .email_box {
+    margin-bottom: 0px;
+}
+.join .id_box > div > div{
+    position: relative;
+}
+.join .id_box input{
+    padding: 0 30px 0 10px;
+}
+.join .pw2_box > div{
+    position: relative;
+}
+.join .email_box > div{
+    position: relative;
+    padding-bottom: 22px;
+}
+.join .email_box .fail{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    line-height: 22px;
+}
+.join .email_box .check{
+    position: absolute;
+    bottom: 1px;
+    right: 3px;
+    font-size: 12px;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    cursor: pointer;
+}
+.join .RRN_box > div{
+    align-items: center;
+    padding-right: 10px;
+    box-sizing: border-box;
+}
+.join .RRN_box .RRN1{
+    width: 50%;
+    appearance: none;
+}
+.join .RRN_box .RRN2{
+    width: 10%;
+    appearance: none;
+}
+.join .RRN_box span{
+    color: #ccc;
+}
+.join fieldset:nth-of-type(2) > div > div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+.join fieldset:nth-of-type(2) p{
+    width: 100%;
+}
+.join fieldset:nth-of-type(2) > div .material-symbols-outlined{
+    margin-right: 5px;
+}
+.join fieldset:nth-of-type(2) > div > div > p > span{
+    margin-left: 3px;
+    color: #32AC72;
+    font-size: 10px
+}
+.join .all_agree > p {
+    padding: 0 20px;
+    box-sizing: border-box;
+    font-size: 12px;
+    line-height: 1em;
+}
+.join fieldset:nth-of-type(2) .agree_scroll{
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    overflow: scroll;
+    font-size: 12px;
+    line-height: 1.3em;
+}
+.join form button{
+    width: 100%;
+    background-color: #CB91F8;
+    border-radius: 7px;
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+    line-height: 40px;
+}
+

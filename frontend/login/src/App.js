@@ -1,14 +1,24 @@
 import './App.css';
-import Login from './Page/login';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Login from './pages/Login';
+import Join from './pages/Join';
+import Search from './pages/Search';
+
 
 function App() {
     return (
-        <div className="App">
-            <div id='wrap'>
-                <h1 className='logo'>Task Tribe</h1>
-                <Login />
+        <BrowserRouter>
+            <div className="App">
+                <div id='title'>
+                    <h1 className='logo'>Task Tribe</h1>
+                </div>
+                <Routes>
+                    <Route path='/' element={<Login />} />
+                    <Route path='/join' element={<Join />} />
+                    <Route path='/search' element={<Search />} />
+                </Routes>
             </div>
-        </div>
+        </BrowserRouter>
     );
 }
 
