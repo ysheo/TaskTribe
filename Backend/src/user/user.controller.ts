@@ -1,4 +1,4 @@
-import { Body, Controller, Post, Get, Query } from '@nestjs/common';
+import { Body, Controller, Post, Get, Query, HttpException, HttpStatus } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import {UserService} from './user.service';
 
@@ -24,7 +24,34 @@ export class UserController {
       result = await this.userService.duplicateEmailCheck({email:user.email});
       if (result.length > 0) return result;
 
-      await this.userService.sendVerificationCode(user.email); 
+      await this.userService.sendVerificationCode(user.email,'c','가입을 환영합니다.'); 
+    }
+
+    @Post('/find')
+    async find(@Body() condition: any): Promise<string> {
+      const conditionType = condition.type;
+      delete condition.type;
+      if (conditionType=='CODE') 
+      {
+        let cnt = await this.userService.codeCheck(condition);
+        if ( cnt > 0) return '';
+        else throw new HttpException('인증오류', HttpStatus.NOT_ACCEPTABLE);;
+       
+      }
+    
+      const user = await this.userService.findIdPassword(condition);
+
+      if (conditionType=='ID') return user['userid'].replace(/(?<!^).(?!$)/g, "*");
+      else if (conditionType=='PASSWORD')this.userService.sendVerificationCode(user.email,'p','비밀번호 인증 메일입니다.'); 
+      else if (conditionType=='IDALL')this.userService.sendVerificationCode(user.email,'i','아이디 찾기 메일입니다.', user.userid); 
+
+      return '';
+    }
+
+    @Post('/change')
+    async Change(@Body() condition: any): Promise<string> {
+      this.userService.changePassword(condition["email"], condition["password"]); 
+      return '';
     }
 
     @Post('/duplicate')
@@ -36,7 +63,7 @@ export class UserController {
 
     @Get('/verify')
       async verifyEmail( @Query('token') token: string) {
-      return await this.userService.update(token);
+      return await this.userService.emailVerify(token);
    }
   
 

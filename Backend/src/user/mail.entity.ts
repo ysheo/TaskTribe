@@ -6,12 +6,14 @@ export class Mail{
     @PrimaryGeneratedColumn()
     uid : number;
     
-    @Column({type: 'varchar', length: 100})
+    @Column({type: 'varchar', length: 100, nullable: false})
     email : string;
 
     // @ManyToOne(type => User, user => user.email)
     // @JoinColumn({ name: 'email', referencedColumnName: 'email'})
     // user: User;
+    @Column({type: 'varchar', length: 1, nullable: false})
+    type : string;
 
     @Column({type: 'varchar', length: 10})
     token : string;

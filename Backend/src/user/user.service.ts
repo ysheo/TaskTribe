@@ -4,8 +4,8 @@ import { Repository, LessThanOrEqual } from 'typeorm'
 import {CreateUserDto} from './dto/create-user.dto'
 import {User} from './user.entity'
 import {Mail} from './mail.entity'
-import {Ecrypt} from './Ecrypt'
 import { EmailService } from './mail.service';
+import * as bcrypt from 'bcryptjs';
 
 @Injectable()
 export class UserService {
@@ -17,24 +17,32 @@ export class UserService {
         private emailService: EmailService,
     ){}
 
-    findAll() : Promise<User[]> {
-        return this.userRepository.find();
+
+    async findIdPassword(condition : any) : Promise<User> {
+      return this.userRepository.findOne({where:condition});
     }
 
     async generateVerificationCode(): Promise<string> {
         return Math.floor(100000 + Math.random() * 900000).toString();
     }
 
-    async sendVerificationCode(email: string): Promise<void> {
+    async codeCheck(condition : any) : Promise<number> {
+      return await this.emailRepository.count({where:condition});      
+    }
+
+    async sendVerificationCode(email: string, type:string, title:string, id : string = ''): Promise<void> {
         const verificationCode = await this.generateVerificationCode();
         await this.emailService.sendVerificationToEmail(
             email,
-            verificationCode,
+            type === 'i' ? id : verificationCode,
+            title,
+            type,
         );
 
         const json = {
             email: email,
             token: verificationCode,
+            type: type,
             auth: false, // or false depending on your needs
             sessionStart: new Date(), // Replace with the actual date
           };
@@ -62,12 +70,12 @@ export class UserService {
   }
 
     async create(user:CreateUserDto) {
-        let ecrypt = new Ecrypt();
-        user = await ecrypt.create(user);
+        const salt = await bcrypt.genSalt();
+        user.password = await bcrypt.hash(user.password, salt);
         await this.userRepository.save(user);
     }
 
-    async update(token : string) : Promise<string>  {    
+    async emailVerify(token : string) : Promise<string>  {    
         const result = await this.emailRepository.count({
             where: {
               token: token,
@@ -83,5 +91,11 @@ export class UserService {
         // 데이터를 찾지 못한 경우 또는 조건이 맞지 않는 경우 처리
         return '세션이 만료되었습니다.\n재인증 부탁드립니다.';
       }
+    }
+
+    async changePassword(email : string,pwd : string){      
+      const salt = await bcrypt.genSalt();
+      //console.log(await bcrypt.hash(pwd, salt));
+      await this.userRepository.update({ email},{password: await bcrypt.hash(pwd, salt)});
     }
 }
