@@ -5,10 +5,13 @@ import { User } from './user.entity';
 export class Mail{
     @PrimaryGeneratedColumn()
     uid : number;
+    
+    @Column({type: 'varchar', length: 100})
+    email : string;
 
-    @ManyToOne(type => User, user => user.email)
-    @JoinColumn({ name: 'email', referencedColumnName: 'email'})
-    user: User;
+    // @ManyToOne(type => User, user => user.email)
+    // @JoinColumn({ name: 'email', referencedColumnName: 'email'})
+    // user: User;
 
     @Column({type: 'varchar', length: 10})
     token : string;
