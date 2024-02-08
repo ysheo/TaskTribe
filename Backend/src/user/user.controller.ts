@@ -1,47 +1,50 @@
-import { Body, Controller, Post, Get, Query, Param } from '@nestjs/common';
+import { Body, Controller, Post, Get, Query } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
-import { UserService } from './user.service';
+import {UserService} from './user.service';
 
-@Controller('user')
+@Controller('api/user')
 export class UserController {
-  constructor(private readonly userService: UserService) {}
+    constructor (private readonly userService : UserService){}
 
-  @Get()
-  async getAll(@Body() dto: CreateUserDto): Promise<void> {
-    console.log(dto);
-  }
+    @Get()
+    async getAll(@Body() dto: CreateUserDto): Promise<void> {
+      console.log(dto);
+    }
+  
+    // 아이디 기준으로 회원 조회
+    @Get('/:userid')
+    async getUser(@Param('userid') userid: string) {
+      const user = await this.userService.getUser(userid);
+      console.log(user);
+      return user;
+    }
 
-  // 아이디 기준으로 회원 조회
-  @Get('/:userid')
-  async getUser(@Param('userid') userid: string) {
-    const user = await this.userService.getUser(userid);
-    console.log(user);
-    return user;
-  }
 
-  @Post()
-  async createUser(@Body() user: CreateUserDto): Promise<string> {
-    let result = await this.userService.duplicateCheck({ email: user.email });
-    if (result === '중복') return result;
+    @Post()
+    async createUser(@Body() user: CreateUserDto) {
+      const result = await  this.userService.create(user);
+    }
 
-    await this.userService.create(user);
-    await this.userService.sendVerificationCode(user.email, user.userid);
-  }
+    @Post('/email')
+    async emailCheck(@Body() user: any): Promise<string> {      
+      let result = await this.userService.duplicateCheck({email:user.email});
+      if (result.length > 0) return result;
 
-  @Get('/duplicate')
-  async IDVarify(@Query('id') id: string): Promise<string> {
-    let result = await this.userService.duplicateCheck({ userid: id });
-    return result;
-  }
+      result = await this.userService.duplicateEmailCheck({email:user.email});
+      if (result.length > 0) return result;
 
-  @Post('/id')
-  async duplicateCheck(@Body() dto: any): Promise<string> {
-    let result = await this.userService.duplicateCheck(dto);
-    return result;
-  }
+      await this.userService.sendVerificationCode(user.email); 
+    }
 
-  @Get('/verify')
-  async verifyEmail(@Query('token') token: string) {
-    return await this.userService.update(token);
-  }
+    @Post('/duplicate')
+    async duplicateCheck(@Body() dto: any): Promise<string> {
+      //console.log(dto);
+      let result = await this.userService.duplicateCheck(dto);
+      return result;
+    }
+
+    @Get('/verify')
+      async verifyEmail( @Query('token') token: string) {
+      return await this.userService.update(token);
+   }
 }
