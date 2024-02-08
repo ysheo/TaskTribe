@@ -20,6 +20,12 @@ export class UserService {
     findAll() : Promise<User[]> {
         return this.userRepository.find();
     }
+	
+	getUser(userid: string) {
+		const result = this.userRepository.findOne({ where: { userid: userid } });
+		return result;
+	}
+
 
     async generateVerificationCode(): Promise<string> {
         return Math.floor(100000 + Math.random() * 900000).toString();

@@ -10,6 +10,15 @@ export class UserController {
     async getAll(@Body() dto: CreateUserDto): Promise<void> {
       console.log(dto);
     }
+  
+    // 아이디 기준으로 회원 조회
+    @Get('/:userid')
+    async getUser(@Param('userid') userid: string) {
+      const user = await this.userService.getUser(userid);
+      console.log(user);
+      return user;
+    }
+
 
     @Post()
     async createUser(@Body() user: CreateUserDto) {
@@ -38,6 +47,4 @@ export class UserController {
       async verifyEmail( @Query('token') token: string) {
       return await this.userService.update(token);
    }
-  
-
 }
