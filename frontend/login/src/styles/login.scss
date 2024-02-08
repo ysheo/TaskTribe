@@ -141,3 +141,73 @@ input::placeholder {
     margin: 0 1.5%;
     color: #b1b1b1;
   }
+
+  //Search.js의 scss
+  .search {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    max-width: 500px;
+    padding: 0 20px;
+  
+    left: 50%;
+    transform: translate(-50%, 0);
+  
+    overflow: hidden;
+  
+    display: flex;
+    flex-direction: column;
+  }
+
+  .search > h3 {
+    margin-top: 150px;
+    color: #666;
+  
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+
+  .searchbounder {
+    position: absolute;
+    width: 500px;
+    margin-top: 20px;
+    height : 415px;
+    flex-shrink: 0;
+    box-sizing: border-box;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #cb91f8;
+    background: #fff;
+}
+
+.searchid{
+  width: 50%;
+  height: 57px;
+  background: #cb91f8;
+  border: none;
+  text-align: center;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+}
+
+.searchpw{
+  width: 50%;
+  height: 57px;
+  background: #c1c1c1;
+  border: none;
+  text-align: center;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+}

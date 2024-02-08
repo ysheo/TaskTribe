@@ -7,13 +7,16 @@
 const Search = () => {
     return(
         <div className="search">
+            <h3>아이디 찾기</h3>
             <form>
-            <h3 className="idsearch">아이디 찾기</h3>
-            <div className="searchbox">
-            
-            <button type="click">아이디 찾기</button>
+            <fieldset>
+                <div className="searchbounder">
+                <button className="searchid">아이디 찾기</button>
+                <button className="searchpw">비밀번호 찾기</button>
+                </div>
 
-            </div>
+            </fieldset>
+        
             </form>
         </div>
     )

@@ -91,10 +91,11 @@ const Login = () => {
               required
             />
           </div>
-          <div className="errorMessage"></div>
+          <div className="errorMessage">
           {!pwValid && pw.length > 0 && (
             <div>영문, 숫자, 특수문자 포함 6자 이상 입력해주세요.</div>
           )}
+          </div>
           <div className="remember">
             <label>
               <input type="checkbox" />
