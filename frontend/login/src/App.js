@@ -1,8 +1,8 @@
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Login from './pages/Login';
+import Login from './component/login/Login';
 import Join from './pages/Join';
-import Search from './pages/Search';
+import Search from './component/login/Search';
 
 
 function App() {

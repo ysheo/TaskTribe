@@ -1,0 +1,143 @@
+@charset "utf-8";
+
+.loginbound {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  max-width: 500px;
+  padding: 0 20px;
+
+  left: 50%;
+  transform: translate(-50%, 0);
+
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.loginbound > h3 {
+  margin-top: 150px;
+  color: #666;
+
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.idinputbox {
+  display: flex;
+  padding: 16px;
+  margin-top: 8px;
+  border: 1px solid #c1c1c1;
+  border-radius: 7px;
+}
+
+.idinputbox:focus-within {
+  border: 1px solid #cb91f8;
+}
+
+.input {
+  width: 90%;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  transform: translateX(5%);
+}
+
+input::placeholder {
+  color: c1c1c1;
+}
+
+.idinputbox .icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  transform: translateY(0%);
+  color: #c1c1c1;
+}
+
+.errorMessage {
+  margin-top: 8px;
+  color: red;
+  font-size: 14px;
+}
+
+.pwinputbox:focus-within {
+  border: 1px solid #cb91f8;
+}
+
+.pwinputbox {
+  display: flex;
+  padding: 16px;
+  margin-top: 8px;
+  border: 1px solid #c1c1c1;
+  border-radius: 7px;
+}
+
+input::placeholder {
+  color: c1c1c1;
+}
+
+.pwinputbox .icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  transform: translateY(0%);
+  color: #c1c1c1;
+}
+
+.remember {
+  display: flex;
+  font-size: 18px;
+  margin: 20px 0 15px;
+}
+
+.remember label input {
+  width: 22px;
+  height: 18px;
+  flex-shrink: 0;
+  accent-color: #cb91f8;
+  margin-right: 5px;
+}
+
+.loginbnt {
+  width: 100%;
+  height: 58px;
+  background: #cb91f8;
+  border: none;
+  border-radius: 10px;
+  text-align: center;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+}
+
+.loginbnt:disabled {
+    background-color: #c1c1c1;
+    color: white;
+}
+.searchbox {
+    display: flex;
+    text-align: center;
+    font-size: 15px;
+    justify-content: center;
+    margin-top: 10%;
+  }
+
+  .searchbox > p {
+    cursor: pointer;
+  }
+  
+  .searchbox > span {
+    display: flex;
+    align-items: center;
+    margin: 0 1.5%;
+    color: #b1b1b1;
+  }
