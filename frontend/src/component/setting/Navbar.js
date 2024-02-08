@@ -40,12 +40,13 @@ export default class Navbar extends React.Component {
   };
   render() {
     return (
-      <div className="side">
+      <div className="settingMain">
         <Drawer
           open={this.state.open}
           PaperProps={{
             style: {
               position: "absolute",
+              width: "200px",
             },
           }}
           variant="permanent"

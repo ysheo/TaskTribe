@@ -1,22 +1,49 @@
 .ProfileHeader {
+  position: relative;
   height: 20vh;
   background-image: url("images/profileHeader.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  z-index: 100;
 }
 
-.side {
+.settingMain {
   height: 100%;
   width: 100%;
   position: fixed;
 }
 
+.settingDefault {
+  width: calc(100% - 200px);
+  margin-left: 200px;
+  padding: 0 20px 20px 20px;
+  text-align: left;
+}
+
+.settingSub {
+  font-weight: bold;
+  margin-right: 10px;
+  font-size: large;
+}
+
+.settingPicture {
+  display: inline-flex;
+  text-align: center;
+  align-items: center;
+  // display: flex;
+  // justify-content: space-between;
+
+  //width: 70vh;
+}
+
 .profileImage {
-  margin-top: -10vh;
+  position: relative; /* 자식 요소의 위치를 절대적으로 설정 */
   height: 20vh;
-  z-index: 5;
+  width: 20vh;
+  margin: 0 auto;
+  margin-top: 2vh !important;
+  margin-bottom: 2vh;
+  //z-index: 100;
   border-radius: 50%;
   background-image: url("images/profile.jpg");
   background-repeat: no-repeat;

@@ -8,7 +8,6 @@ export default class Setting extends React.Component {
       <div>
         <div className="ProfileHeader" />
         <Navbar />
-        {/* <Button variant="outlined">저장</Button> */}
       </div>
     );
   }
