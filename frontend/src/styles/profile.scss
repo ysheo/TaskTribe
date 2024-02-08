@@ -1,0 +1,25 @@
+.ProfileHeader {
+  height: 20vh;
+  background-image: url("images/profileHeader.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  z-index: 100;
+}
+
+.side {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+}
+
+.profileImage {
+  margin-top: -10vh;
+  height: 20vh;
+  z-index: 5;
+  border-radius: 50%;
+  background-image: url("images/profile.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
