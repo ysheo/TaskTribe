@@ -374,7 +374,7 @@ input::placeholder {
 .checkinputbox {
   display: flex;
   padding: 5px;
-  margin-top: 20px;
+  margin-top: 40px;
   width: 30%;
   border: 1px solid #c1c1c1;
   border-radius: 7px;
@@ -409,7 +409,7 @@ input::placeholder {
 }
 
 .pwsearchbnt {
-  position: absolute;
+  position: fixed;
   width: 90%;
   height: 58px;
   background: #cb91f8;
@@ -423,7 +423,7 @@ input::placeholder {
   color: #fff;
   cursor: pointer;
   display: block;
-  margin-top: 20px;
+  margin-top: 30px;
   transform: translateX(1.4%);
 }
 

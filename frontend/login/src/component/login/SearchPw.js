@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 const User = {
   id: "test",
   email: "test@gamil.com",
+  check: "123456",
 };
 
 const Search = () => {
@@ -19,6 +20,8 @@ const Search = () => {
   const [emailValid, setEmailValid] = useState(false);
   const [checkValid, setCheckValid] = useState(false);
   const [notAllow, setNotAllow] = useState(true);
+
+  const [showVerificationInput, setShowVerificationInput] = useState(false);
 
   //추후 ID 쿼리를 받아올 수 있도록 수정할 것
   const handleId = (e) => {
@@ -54,7 +57,7 @@ const Search = () => {
   };
 
   const onClickConfirmButton = () => {
-    if (id === User.id && email === User.email) {
+    if (id === User.id && email === User.email && check === User.check) {
       alert("ID는 test 입니다.");
     } else {
       alert("등록되지 않은 회원입니다.");
@@ -62,12 +65,12 @@ const Search = () => {
   };
 
   useEffect(() => {
-    if (idValid && emailValid) {
+    if (idValid && emailValid && checkValid) {
       setNotAllow(false);
       return;
     }
     setNotAllow(true);
-  }, [idValid, emailValid]);
+  }, [idValid, emailValid, checkValid]);
 
   return (
     <div className="search">
@@ -122,10 +125,15 @@ const Search = () => {
           </div>
 
           <div>
-            <button className="checkemail">인증메일 발송</button>
+          {emailValid && email.length > 0 && (
+            <button className="checkemail"
+              onClick={() =>setShowVerificationInput(true)}>
+              인증메일 발송</button>
+            )}
           </div>
           </fieldset>
 
+          {showVerificationInput && (
           <fieldset>
           <div className="checkinputbox">
             <input
@@ -136,8 +144,11 @@ const Search = () => {
               onChange={handlecheck}
               required/>
         </div>
+
         <div>
+        {checkValid && check.length > 0 && (
             <button className="check">인증하기</button>
+            )}
           </div>
           <div className="errorMessage">
             {!checkValid && check.length > 0 && (
@@ -145,7 +156,7 @@ const Search = () => {
             )}
           </div>
           </fieldset>
-        
+          )}
 
         <fieldset>
         <div>
