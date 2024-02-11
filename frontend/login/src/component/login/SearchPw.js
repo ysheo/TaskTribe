@@ -35,7 +35,7 @@ const Search = () => {
   const handleEmail = (e) => {
     setemail(e.target.value);
     const regex =
-      /^(([^<>()\[\].,;:\s@"]+(\.[^<>()\[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,3})$/i;
+      /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,3})$/i;
     if (regex.test(email)) {
       setEmailValid(true);
     } else {
@@ -79,7 +79,7 @@ const Search = () => {
             onClick={() => navigate("/search")}
             className="searchPwid">아이디 찾기</button>
             <button 
-            onClick={() => navigate("/")}
+            onClick={() => navigate("/searchpw")}
             className="searchPwpw">비밀번호 찾기</button>
           </div>
         </fieldset>
