@@ -364,7 +364,7 @@ input::placeholder {
   font-family: Inter;
   font-size: 15px;
   font-style: normal;
-  font-weight: 600;
+  font-weight: 500;
   color: #fff;
   cursor: pointer;
   display: block;
@@ -400,8 +400,8 @@ input::placeholder {
   font-family: Inter;
   font-size: 15px;
   font-style: normal;
-  font-weight: 600;
-  color: #fff;
+  font-weight: 500;
+  color: #fff !important;
   cursor: pointer;
   display: block;
   margin-left: 180px;

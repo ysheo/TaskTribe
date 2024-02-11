@@ -121,8 +121,8 @@ const Search = () => {
             )}
           </div>
 
-          <div className="checkemail">
-            <button>인증메일 발송</button>
+          <div>
+            <button className="checkemail">인증메일 발송</button>
           </div>
           </fieldset>
 
@@ -136,8 +136,8 @@ const Search = () => {
               onChange={handlecheck}
               required/>
         </div>
-        <div className="check">
-            <button>인증하기</button>
+        <div>
+            <button className="check">인증하기</button>
           </div>
           <div className="errorMessage">
             {!checkValid && check.length > 0 && (
