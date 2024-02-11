@@ -354,7 +354,7 @@ input::placeholder {
 }
 
 .checkemail{
-  position: fixed;
+  position: relative;
   width: 25%;
   height: 20px;
   background: #cb91f8;
@@ -409,7 +409,6 @@ input::placeholder {
 }
 
 .pwsearchbnt {
-  position: fixed;
   width: 90%;
   height: 58px;
   background: #cb91f8;
@@ -423,8 +422,8 @@ input::placeholder {
   color: #fff;
   cursor: pointer;
   display: block;
-  margin-top: 30px;
-  transform: translateX(1.4%);
+  margin: 0 auto;
+  margin-top: 20px;
 }
 
 .pwsearchbnt:disabled {
