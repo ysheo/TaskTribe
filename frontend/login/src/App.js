@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Login from './component/login/Login';
 import Join from './pages/Join';
 import Search from './component/login/Search';
+import SearchPw from './component/login/SearchPw';
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
                     <Route path='/' element={<Login />} />
                     <Route path='/join' element={<Join />} />
                     <Route path='/search' element={<Search />} />
+                    <Route path='/searchpw' element={<SearchPw />} />
                 </Routes>
             </div>
         </BrowserRouter>

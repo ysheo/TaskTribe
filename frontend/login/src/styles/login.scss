@@ -64,6 +64,7 @@ input::placeholder {
   margin-top: 8px;
   color: red;
   font-size: 14px;
+  transform: translateX(1.4%);
 }
 
 .pwinputbox:focus-within {
@@ -150,12 +151,9 @@ input::placeholder {
     width: 100%;
     max-width: 500px;
     padding: 0 20px;
-  
     left: 50%;
     transform: translate(-50%, 0);
-  
     overflow: hidden;
-  
     display: flex;
     flex-direction: column;
   }
@@ -163,7 +161,6 @@ input::placeholder {
   .search > h3 {
     margin-top: 150px;
     color: #666;
-  
     font-family: Inter;
     font-size: 18px;
     font-style: normal;
@@ -175,13 +172,12 @@ input::placeholder {
     position: absolute;
     width: 500px;
     margin-top: 20px;
-    height : 415px;
+    height : 450px;
     flex-shrink: 0;
     box-sizing: border-box;
     border-width: 1px;
     border-style: solid;
     border-color: #cb91f8;
-    background: #fff;
 }
 
 .searchid{
@@ -210,4 +206,231 @@ input::placeholder {
   font-weight: 600;
   color: #fff;
   cursor: pointer;
+}
+
+.nametext {
+  color: #666;
+  display: flex;
+  margin-top: 100px;
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  transform: translateX(1.4%);
+}
+
+.nameinputbox {
+  display: flex;
+  width: 90%;
+  flex-shrink: 0;
+  padding: 16px;
+  margin-top: 10px;
+  border: 1px solid #c1c1c1;
+  border-radius: 7px;
+  transform: translateX(1.4%);
+}
+
+.nameinputbox:focus-within {
+  border: 1.5px solid #cb91f8;
+}
+
+.nameinputbox .icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  transform: translateY(0%);
+  color: #c1c1c1;
+}
+
+.nameinputbox .input {
+  width: 90%;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  transform: translateX(5%);
+}
+
+.emailtext {
+  color: #666;
+  margin-top: 30px;
+  display: flex;
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  transform: translateX(1.4%);
+}
+
+.emailinputbox {
+  display: flex;
+  padding: 16px;
+  margin-top: 10px;
+  width: 90%;
+  border: 1px solid #c1c1c1;
+  border-radius: 7px;
+  transform: translateX(1.4%);
+}
+
+.emailinputbox:focus-within {
+  border: 1.5px solid #cb91f8;
+}
+
+.emailinputbox .icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  transform: translateY(0%);
+  color: #c1c1c1;
+}
+
+.emailinputbox .input {
+  width: 80%;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  transform: translateX(5%);
+}
+
+.idsearchbnt {
+  width: 90%;
+  height: 58px;
+  background: #cb91f8;
+  border: none;
+  border-radius: 10px;
+  text-align: center;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.idsearchbnt:disabled {
+  background-color: #c1c1c1;
+  color: white;
+}
+
+//비밀번호찾기 css
+.searchPwbounder {
+  position: absolute;
+  width: 500px;
+  margin-top: 20px;
+  height : 550px;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #cb91f8;
+}
+
+.searchPwid{
+  width: 50%;
+  height: 57px;
+  background: #c1c1c1;
+  border: none;
+  text-align: center;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+}
+
+.searchPwpw{
+  width: 50%;
+  height: 57px;
+  background: #cb91f8;
+  border: none;
+  text-align: center;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+}
+
+.checkemail{
+  width: 30%;
+  height: 20px;
+  background: #cb91f8;
+  border: none;
+  border-radius: 10px;
+  text-align: center;
+  font-family: Inter;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  display: block;
+  margin-left: 340px;
+  margin-top: 20px;
+}
+
+.checkinputbox {
+  display: flex;
+  padding: 5px;
+  margin-top: 20px;
+  width: 30%;
+  border: 1px solid #c1c1c1;
+  border-radius: 7px;
+  transform: translateX(4%);
+}
+
+.checkinputbox .input {
+  width: 90%;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  transform: translateX(5%);
+}
+
+.check{
+  position: absolute;
+  width: 20%;
+  height: 20px;
+  background: #cb91f8;
+  border: none;
+  border-radius: 10px;
+  text-align: center;
+  font-family: Inter;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  display: block;
+  margin-left: 180px;
+  margin-top: -28px;
+}
+
+.pwsearchbnt {
+  width: 90%;
+  height: 58px;
+  background: #cb91f8;
+  border: none;
+  border-radius: 10px;
+  text-align: center;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.pwsearchbnt:disabled {
+  background-color: #c1c1c1;
+  color: white;
 }

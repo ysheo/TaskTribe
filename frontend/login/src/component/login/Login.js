@@ -34,7 +34,7 @@ const Login = () => {
   const handlePw = (e) => {
     setPw(e.target.value);
     const regex =
-      /^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+])(?!.*[^a-zA-z0-9$`~!@$!%*#^?&\\(\\)\-_=+]).{6,20}$/;
+      /^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+])(?!.*[^a-zA-z0-9$`~!@$!%*#^?&\\(\\)\-_=+]).{8,20}$/;
     if (regex.test(pw)) {
       setPwValid(true);
     } else {
@@ -93,7 +93,7 @@ const Login = () => {
           </div>
           <div className="errorMessage">
           {!pwValid && pw.length > 0 && (
-            <div>영문, 숫자, 특수문자 포함 6자 이상 입력해주세요.</div>
+            <div>영문, 숫자, 특수문자 포함 8자 이상 입력해주세요.</div>
           )}
           </div>
           <div className="remember">
@@ -117,7 +117,7 @@ const Login = () => {
           <div className="searchbox">
             <p onClick={() => navigate("/search")}> 아이디 찾기 </p>
             <span>|</span>
-            <p> 비밀번호 찾기 </p>
+            <p onClick={() => navigate("/searchPw")}> 비밀번호 찾기 </p>
             <span>|</span>
             <p onClick={() => navigate("/join")}> 회원가입 </p>
           </div>
