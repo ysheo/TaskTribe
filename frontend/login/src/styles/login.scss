@@ -408,6 +408,41 @@ input::placeholder {
   margin-top: -28px;
 }
 
+.checkTime{
+  position: absolute;
+  margin-top: 10px;
+  margin-left: 10px;
+  text-align: center;
+  font-family: Inter;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 500;
+  color: #666;
+}
+
+.checkTime span{
+  color : red;
+}
+
+.retimer{
+  position: absolute;
+  margin-top: 10px;
+  margin-left: 140px;
+  width: 20%;
+  text-align: center;
+  font-family: Inter;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 500;
+  height: 20px;
+  background: #cb91f8;
+  border: none;
+  border-radius: 10px;
+  color: #fff !important;
+  cursor: pointer;
+  display: block;
+}
+
 .pwsearchbnt {
   width: 90%;
   height: 58px;
@@ -423,7 +458,7 @@ input::placeholder {
   cursor: pointer;
   display: block;
   margin: 0 auto;
-  margin-top: 20px;
+  margin-top: 60px;
 }
 
 .pwsearchbnt:disabled {

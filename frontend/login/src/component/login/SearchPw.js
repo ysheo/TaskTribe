@@ -72,6 +72,43 @@ const Search = () => {
     setNotAllow(true);
   }, [idValid, emailValid, checkValid]);
 
+  //timer
+  
+    // 초기 타이머 시간 (초)을 정의, 180초, 3분.
+    const initialTime = 180;
+
+    //남은 시간을 상태로 관리.
+    const [remainingTime, setRemainingTime] = useState(initialTime);
+  
+    useEffect(() => {
+      // useEffect을 사용하여 컴포넌트가 마운트될 때 타이머 시작.
+      const timer = setInterval(() => {
+        //남은 시간이 0보다 크면 1초씩 감소.
+        if (remainingTime > 0) {
+          setRemainingTime((prevTime)=> prevTime - 1);
+        } else {
+          // 남은 시간이 0이 되면 타이머 정지
+          clearInterval(timer);
+        }
+      }, 1000);
+
+      //컴포넌트가 언마운트되면 타이머 정지
+      return ( ) => clearInterval(timer);
+    }, [remainingTime]); //remainingTime이 변경될 떄마다 useEffect가 다시 실행됨.
+
+      // 시간을 분과 초로 변화하는 함수
+
+      const formatTime = (timeInSeconds) => {
+        const minutes = Math.floor(timeInSeconds / 60);
+        const seconds = timeInSeconds % 60;
+        return `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+      };
+
+      // 재전송 버튼을 클릭했을 때 호출되는 함수
+      const handleResendClick = () => {
+        setRemainingTime(initialTime); //남은 시간을 초기값으로 설정
+      };
+
   return (
     <div className="search">
       <h3>비밀번호 찾기</h3>
@@ -143,7 +180,7 @@ const Search = () => {
               value={check}
               onChange={handlecheck}
               required/>
-        </div>
+          </div>
 
         <div>
         {checkValid && check.length > 0 && (
@@ -155,6 +192,18 @@ const Search = () => {
               <div>인증번호가 올바르지 않습니다.</div>
             )}
           </div>
+          
+          <div className="checkTime">
+            <div>남은 시간 : <span>{formatTime(remainingTime)}</span></div>
+          </div>
+
+          <div>
+            <button className="retimer" 
+            onClick={handleResendClick}>
+              재전송
+            </button>
+          </div>
+
           </fieldset>
           )}
 
