@@ -21,8 +21,10 @@ export class UserService {
     return this.userRepository.findOne({ where: condition });
   }
 
-  getUser(userid: string) {
-    const result = this.userRepository.findOne({ where: { userid: userid } });
+  async getUser(userid: string) {
+    const result = await this.userRepository.findOne({
+      where: { userid: userid },
+    });
     return result;
   }
 
@@ -102,6 +104,18 @@ export class UserService {
       // 데이터를 찾지 못한 경우 또는 조건이 맞지 않는 경우 처리
       return '세션이 만료되었습니다.\n재인증 부탁드립니다.';
     }
+  }
+
+  async update(userid: string, dynamicCondition: any) {
+    if (dynamicCondition.hasOwnProperty('password')) {
+      const salt = await bcrypt.genSalt();
+      dynamicCondition['password'] = await bcrypt.hash(
+        dynamicCondition['password'],
+        salt,
+      );
+    }
+
+    await this.userRepository.update({ userid }, dynamicCondition);
   }
 
   async changePassword(email: string, pwd: string) {

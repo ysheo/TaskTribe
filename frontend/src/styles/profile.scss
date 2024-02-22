@@ -1,10 +1,21 @@
 .ProfileHeader {
   position: relative;
   height: 20vh;
-  background-image: url("images/profileHeader.jpg");
+  background-image: url("images/setting.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+}
+
+.ProfileHeader h1 {
+  color: #555555;
+  text-shadow: 0px 1px 20px #cb91f8;
+  //background-color: gray;
+  width: fit-content;
+  text-align: left;
+  margin: 0;
+  padding-top: 12vh;
+  padding-left: 35vh;
 }
 
 .settingMain {
@@ -14,39 +25,52 @@
 }
 
 .settingDefault {
-  width: calc(100% - 200px);
-  margin-left: 200px;
+  width: calc(100% - 300px);
+  margin-left: 300px;
   padding: 0 20px 20px 20px;
   text-align: left;
 }
 
 .settingSub {
   font-weight: bold;
-  margin-right: 10px;
   font-size: large;
+  width: 20vh;
+  text-align: left;
 }
 
-.settingPicture {
+.settingInput {
   display: inline-flex;
   text-align: center;
   align-items: center;
-  // display: flex;
+  margin-bottom: 5vh;
+  display: flex;
+  padding: 0 10vh 0 3vh;
   // justify-content: space-between;
 
   //width: 70vh;
 }
 
+.settingBtn {
+  float: right;
+  margin-right: 10vh;
+}
+
+.profile {
+  position: relative;
+  margin-left: 5vh;
+  margin-top: -10vh !important;
+  display: inline-block;
+  float: left;
+}
+
 .profileImage {
-  position: relative; /* 자식 요소의 위치를 절대적으로 설정 */
+  position: relative;
   height: 20vh;
   width: 20vh;
-  margin: 0 auto;
-  margin-top: 2vh !important;
-  margin-bottom: 2vh;
-  //z-index: 100;
-  border-radius: 50%;
-  background-image: url("images/profile.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+  border-radius: 35%;
+}
+.profilebtn {
+  position: absolute;
+  margin-top: -4vh;
+  margin-left: 16vh;
 }

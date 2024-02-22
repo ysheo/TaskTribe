@@ -1,11 +1,10 @@
 import React from "react";
 import { Button, Input } from "@mui/material";
-import { hover } from "@testing-library/user-event/dist/hover";
+
 export default class Profile extends React.Component {
   render() {
     return (
       <div className="settingDefault">
-        <h1>프로필 설정</h1>
         <div className="settingPicture">
           <div className="settingSub">사진</div>
           <div>

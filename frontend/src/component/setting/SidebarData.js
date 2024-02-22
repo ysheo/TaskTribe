@@ -4,11 +4,11 @@ import GroupIcon from "@mui/icons-material/Group";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 
 export const SidebarData = [
-  {
-    title: "프로필 관리",
-    path: "/setting/profile",
-    icon: <PersonOutlineIcon />,
-  },
+  // {
+  //   title: "프로필 관리",
+  //   path: "/setting/profile",
+  //   icon: <PersonOutlineIcon />,
+  // },
   {
     title: "개인 정보 관리",
     path: "/setting/personal",
