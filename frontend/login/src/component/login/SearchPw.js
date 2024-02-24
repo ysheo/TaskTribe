@@ -34,16 +34,18 @@ const Search = () => {
     }
   };
 
-  //추후 PW 쿼리를 받아올 수 있도록 수정할 것
+  //추후 이메일 쿼리를 받아올 수 있도록 수정할 것
   const handleEmail = (e) => {
-    setemail(e.target.value);
+    const einfo = e.target.value;
     const regex =
       /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,3})$/i;
-    if (regex.test(email)) {
+    if (regex.test(einfo)) {
       setEmailValid(true);
     } else {
       setEmailValid(false);
     }
+    setemail(einfo);
+    console.log(einfo)
   };
 
   const handlecheck = (e) => {

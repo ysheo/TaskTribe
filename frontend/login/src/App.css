@@ -5,6 +5,7 @@
   padding: 40px 17px;
   box-sizing: border-box;
 }
+
 .logo {
   position: fixed;
   width: 100%;
@@ -20,11 +21,14 @@
   font-weight: 900;
   line-height: normal;
 }
+
 .title {
   width: 100%;
   padding: 40px 17px;
   box-sizing: border-box;
 }
+
+
 
 /* 768px 시작 (태블릿) */
 @media screen and (min-width: 768px) {
