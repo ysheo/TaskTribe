@@ -1,5 +1,5 @@
 import Login from './Login';
-import Join from '../../pages/Join';
+// import Join from '../../pages/Join';
 import Search from './Search';
 import SearchPw from './SearchPw';
 import { Routes, Route } from 'react-router-dom';
@@ -17,7 +17,7 @@ const LoginMain = () => {
                 </div>
                 <Routes>
                     <Route path='/' element={<Login />} />
-                    <Route path='/join' element={<Join />} />
+                    <Route path='/join' element={<Login />} />
                     <Route path='/search' element={<Search />} />
                     <Route path='/searchpw' element={<SearchPw />} />
                 </Routes>
