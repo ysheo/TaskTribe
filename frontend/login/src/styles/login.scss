@@ -85,6 +85,7 @@ input::placeholder {
 
 .errorMessage {
   margin-top: 8px;
+  margin-left: 20px;
   color: red;
   font-size: 14px;
   transform: translateX(1.4%);
@@ -167,6 +168,10 @@ input::placeholder {
   }
 
   //Search.js의 scss
+  .SearchIdRegion {
+    position:fixed;
+  }
+
   .search {
     position: absolute;
     top: 0;
@@ -195,7 +200,7 @@ input::placeholder {
     position: absolute;
     width: 500px;
     margin-top: 20px;
-    height : 450px;
+    height : 550px;
     flex-shrink: 0;
     box-sizing: border-box;
     border-width: 1px;
@@ -235,6 +240,7 @@ input::placeholder {
   color: #666;
   display: flex;
   margin-top: 100px;
+  margin-left: 20px;
   font-family: Inter;
   font-size: 18px;
   font-style: normal;
@@ -245,13 +251,15 @@ input::placeholder {
 
 .nameinputbox {
   display: flex;
-  width: 90%;
+  width: 80%;
   flex-shrink: 0;
   padding: 16px;
   margin-top: 10px;
   border: 1px solid #c1c1c1;
   border-radius: 7px;
-  transform: translateX(1.4%);
+  display: block;
+  margin: 0 auto;
+  margin-top : 10px
 }
 
 .nameinputbox:focus-within {
@@ -277,6 +285,7 @@ input::placeholder {
 .emailtext {
   color: #666;
   margin-top: 30px;
+  margin-left: 20px;
   display: flex;
   font-family: Inter;
   font-size: 18px;
@@ -290,10 +299,12 @@ input::placeholder {
   display: flex;
   padding: 16px;
   margin-top: 10px;
-  width: 90%;
+  width: 80%;
   border: 1px solid #c1c1c1;
   border-radius: 7px;
-  transform: translateX(1.4%);
+  display: block;
+  margin: 0 auto;
+  margin-top : 10px
 }
 
 .emailinputbox:focus-within {
@@ -331,7 +342,7 @@ input::placeholder {
   cursor: pointer;
   display: block;
   margin: 0 auto;
-  margin-top: 50px;
+  margin-top: 35px;
 }
 
 .idsearchbnt:disabled {
@@ -402,6 +413,7 @@ input::placeholder {
   display: flex;
   padding: 5px;
   margin-top: 20px;
+  margin-left: 20px;
   width: 30%;
   border: 1px solid #c1c1c1;
   border-radius: 7px;
@@ -437,8 +449,7 @@ input::placeholder {
 
 .checkTime{
   position: absolute;
-  margin-top: 10px;
-  margin-left: 10px;
+  margin-left: 25px;
   text-align: center;
   font-family: Inter;
   font-size: 15px;
@@ -453,8 +464,7 @@ input::placeholder {
 
 .retimer{
   position: absolute;
-  margin-top: 10px;
-  margin-left: 140px;
+  margin-left: 165px;
   width: 20%;
   text-align: center;
   font-family: Inter;
@@ -485,7 +495,7 @@ input::placeholder {
   cursor: pointer;
   display: block;
   margin: 0 auto;
-  margin-top: 50px;
+  margin-top: 35px;
 }
 
 .pwsearchbnt:disabled {

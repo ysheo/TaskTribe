@@ -1,5 +1,5 @@
 import './App.css';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import LoginMain from './component/login/Main';
 // import Login from './component/login/Login';
 // import Join from './pages/Join';

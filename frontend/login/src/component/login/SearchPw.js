@@ -26,7 +26,7 @@ const Search = () => {
   //추후 ID 쿼리를 받아올 수 있도록 수정할 것
   const handleId = (e) => {
     setid(e.target.value);
-    const regex =  /^[a-zA-Z0-9]*$/i;
+    const regex =  /^[a-zA-Z0-9]*$/;
     if (regex.test(id)) {
       setIdValid(true);
     } else {
@@ -38,7 +38,7 @@ const Search = () => {
   const handleEmail = (e) => {
     const einfo = e.target.value;
     const regex =
-      /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,3})$/i;
+      /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,3})$/;
     if (regex.test(einfo)) {
       setEmailValid(true);
     } else {
@@ -125,6 +125,8 @@ const Search = () => {
             className="searchPwpw">비밀번호 찾기</button>
           </div>
         </fieldset>
+
+<fieldset>
 
         <fieldset>
           <div className="nametext">가입한 아이디를 입력하세요.</div>
@@ -218,6 +220,7 @@ const Search = () => {
             비밀번호 찾기
           </button>
         </div>
+        </fieldset>
         </fieldset>
         
       </form>

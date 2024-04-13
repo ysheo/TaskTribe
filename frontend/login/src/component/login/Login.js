@@ -22,7 +22,7 @@ const Login = () => {
   //추후 ID 쿼리를 받아올 수 있도록 수정할 것
   const handleId = (e) => {
     setId(e.target.value);
-    const regex = /^[a-zA-Z0-9]*$/i;
+    const regex = /^[a-zA-Z0-9]*$/;
     if (regex.test(id)) {
       setIdValid(true);
     } else {
