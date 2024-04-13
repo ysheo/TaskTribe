@@ -1,9 +1,18 @@
-.join{
+@charset "utf-8";
+
+/* .join{
     max-width: 450px;
     margin: 0 auto;
 }
 .join p{
     color: #666;
+}
+.join .logo{
+    color: #CB91F8;
+    font-size: 24px;
+    font-weight: 900;
+    text-align: center;
+    margin-bottom: 10px;
 }
 .join input{
     width: 100%;
@@ -153,5 +162,4 @@
     font-size: 16px;
     text-align: center;
     line-height: 40px;
-}
-
+} */
