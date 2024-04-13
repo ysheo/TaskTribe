@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import '../../css/join.css'
+import { Post } from '../Fetch';
 
 const Join = () => {
     //change event state
@@ -63,6 +64,14 @@ const Join = () => {
     const handleVisiblePW1 = () => setvisiblePW1(!visiblePW1);
     const handleVisiblePW2 = () => setvisiblePW2(!visiblePW2);
 
+    const test = async(e) => {
+        const json = {
+            "userid": "test2"
+        }
+        const result = await Post("/api/user/duplicate",json);
+        console.log(result);
+    }
+
     return(
         <div className="join">
             <h1 className='logo'>Task Tribe</h1>
@@ -84,7 +93,7 @@ const Join = () => {
                                         <p>6글자 이상, 최대 20글자 이내 / 특수문자, 한글 사용 불가</p>
                                     </>
                                 )}
-                                <button className=''>중복확인</button>
+                                <button className='check' onClick={test}>중복확인</button>
                             </div>
                         </div>
                     </div>
