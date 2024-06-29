@@ -1,0 +1,111 @@
+$mobile-max: 450px;
+$tablet-max: 1023px;
+$desktop-min: 1024px;
+
+@mixin mobile {
+  @media (max-width: $mobile-max) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media (max-width: $tablet-max) and (min-width: $mobile-max) {
+    @content;
+  }
+}
+@mixin desktop {
+  @media (min-width: $desktop-min) {
+    @content;
+  }
+}
+
+.ProfileHeader {
+  position: relative;
+  height: 20vh;
+  background-image: url("images/setting.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  // background-color: white !important;
+}
+
+.ProfileHeader h1 {
+  color: #555555;
+  text-shadow: 0px 1px 20px #cb91f8;
+  //background-color: gray;
+  width: fit-content;
+  text-align: left;
+  margin: 0;
+  padding-top: 12vh;
+  padding-left: 35vh;
+}
+
+.settingMain {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+}
+
+.settingDefault {
+  width: calc(100% - 300px);
+  margin-left: 300px;
+  padding: 0 20px 20px 20px;
+  text-align: left;
+}
+
+.settingSub {
+  font-weight: bold;
+  font-size: large;
+  width: 20vh;
+  text-align: left;
+}
+
+.settingInput {
+  display: inline-flex;
+  text-align: center;
+  align-items: center;
+  margin-bottom: 4vh;
+  display: flex;
+  padding: 0 10vh 0 3vh;
+  // justify-content: space-between;
+
+  //width: 70vh;
+}
+
+.settingBtn {
+  float: right;
+  margin-right: 10vh;
+}
+
+.profile {
+  position: relative;
+  margin-left: 5vh;
+  margin-top: -10vh !important;
+  display: inline-block;
+  float: left;
+}
+
+.MuiPaper-root
+  .MuiPaper-elevation
+  .MuiPaper-elevation0
+  .MuiDrawer-paper
+  .MuiDrawer-paperAnchorLeft
+  .MuiDrawer-paperAnchorDockedLeft
+  .css-12i7wg6-MuiPaper-root-MuiDrawer-paper {
+  width: "300px" !important;
+  margin-top: "12vh" !important;
+  border: "none" !important;
+  padding: "0" !important;
+  height: "50%" !important;
+}
+
+.profileImage {
+  position: relative;
+  height: 20vh;
+  width: 20vh;
+  border-radius: 35%;
+}
+.profilebtn {
+  position: absolute;
+  margin-top: -4vh;
+  margin-left: 16vh;
+}

@@ -7,7 +7,11 @@ import {
   HttpException,
   HttpStatus,
   Param,
+  UploadedFile,
+  UseGuards,
+  UseInterceptors,
 } from '@nestjs/common';
+import { FileInterceptor } from '@nestjs/platform-express';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UserService } from './user.service';
 
@@ -24,7 +28,8 @@ export class UserController {
   @Get('/:userid')
   async getUser(@Param('userid') userid: string) {
     const user = await this.userService.getUser(userid);
-    console.log(user);
+    // console.log('userid : ' + userid);
+    // console.log('test : ' + '\n' + user);
     return user;
   }
 
@@ -76,6 +81,25 @@ export class UserController {
         user.userid,
       );
 
+    return '';
+  }
+
+  @Post('/profile')
+  @UseInterceptors(FileInterceptor('file'))
+  async fileUpload(@UploadedFile() file: any, @Body() user: any) {
+    this.userService.update(user.userid, {
+      profile: btoa(String.fromCharCode(...new Uint8Array(file.buffer))),
+    });
+
+    // console.log(file);
+    // console.log({ profile: file.buffer });
+    // console.log(user.userid);
+  }
+
+  @Post('/update')
+  async update(@Body() condition: any): Promise<string> {
+    //console.log(condition);
+    this.userService.update(condition['userid'], condition);
     return '';
   }
 
