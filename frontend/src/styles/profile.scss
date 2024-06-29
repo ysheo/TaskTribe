@@ -1,3 +1,23 @@
+$mobile-max: 450px;
+$tablet-max: 1023px;
+$desktop-min: 1024px;
+
+@mixin mobile {
+  @media (max-width: $mobile-max) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media (max-width: $tablet-max) and (min-width: $mobile-max) {
+    @content;
+  }
+}
+@mixin desktop {
+  @media (min-width: $desktop-min) {
+    @content;
+  }
+}
+
 .ProfileHeader {
   position: relative;
   height: 20vh;
@@ -5,6 +25,7 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  // background-color: white !important;
 }
 
 .ProfileHeader h1 {
@@ -42,7 +63,7 @@
   display: inline-flex;
   text-align: center;
   align-items: center;
-  margin-bottom: 5vh;
+  margin-bottom: 4vh;
   display: flex;
   padding: 0 10vh 0 3vh;
   // justify-content: space-between;
@@ -61,6 +82,20 @@
   margin-top: -10vh !important;
   display: inline-block;
   float: left;
+}
+
+.MuiPaper-root
+  .MuiPaper-elevation
+  .MuiPaper-elevation0
+  .MuiDrawer-paper
+  .MuiDrawer-paperAnchorLeft
+  .MuiDrawer-paperAnchorDockedLeft
+  .css-12i7wg6-MuiPaper-root-MuiDrawer-paper {
+  width: "300px" !important;
+  margin-top: "12vh" !important;
+  border: "none" !important;
+  padding: "0" !important;
+  height: "50%" !important;
 }
 
 .profileImage {

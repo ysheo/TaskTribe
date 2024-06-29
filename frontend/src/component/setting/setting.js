@@ -3,9 +3,8 @@ import Navbar from "./Navbar";
 
 export default class Setting extends React.Component {
   state = {
-    title: "프로필 관리",
+    title: "개인 정보 관리",
   };
-
   titleChange = (title) => {
     this.setState({ title });
   };
@@ -15,7 +14,10 @@ export default class Setting extends React.Component {
         <div className="ProfileHeader">
           <h1>{this.state.title}</h1>
         </div>
-        <Navbar titleChange={this.titleChange} />
+        <Navbar
+          titleChange={this.titleChange}
+          handleClose={this.props.handleClose}
+        />
       </div>
     );
   }

@@ -1,12 +1,6 @@
-import React from "react";
-import { SidebarData } from "./SidebarData";
-import { Route, Routes, Link } from "react-router-dom";
-
-import Profile from "./Profile";
-import Personal from "./Personal";
-import Friend from "./Friend";
-import { ProfilePost, Get } from "./fetch";
-
+import React, { useState, useEffect } from "react";
+import { Routes, Route, Link } from "react-router-dom";
+import { Get, ProfilePost } from "./fetch";
 import {
   Box,
   ListItem,
@@ -16,28 +10,44 @@ import {
   Drawer,
   Button,
 } from "@mui/material";
-
 import BorderColorOutlinedIcon from "@mui/icons-material/BorderColorOutlined";
+import Personal from "./Personal";
+import Friend from "./Friend";
+import { SidebarData } from "./SidebarData";
 
-export default class Navbar extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+const Navbar = ({ titleChange, handleClose }) => {
+  const [open, setOpen] = useState(true);
+  const [uploadedImage, setUploadedImage] = useState("");
 
-  state = {
-    open: true,
-    uploadedImage: "",
-    test: "",
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        const result = await Get("/api/user/test2");
+        setUploadedImage(`data:image/png;base64,${result["profile"]}`);
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+      }
+    };
+    fetchUserData();
+  }, []);
+
+  const handleUploadClick = async (e) => {
+    const file = e.target.files[0];
+    const imageUrl = URL.createObjectURL(file);
+
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append("userid", "test2");
+
+    try {
+      await ProfilePost("/api/user/profile", formData);
+      setUploadedImage(imageUrl);
+    } catch (error) {
+      console.error("Error uploading profile image:", error);
+    }
   };
 
-  componentDidMount = async () => {
-    let result = await Get("/api/user/test2");
-    this.setState({
-      uploadedImage: `data:image/png;base64,${result["profile"]}`,
-    });
-  };
-
-  sideList = () => (
+  const sideList = (
     <Box component="nav" style={{ marginTop: "5vh" }}>
       {SidebarData.map((item, index) => (
         <ListItem
@@ -46,7 +56,7 @@ export default class Navbar extends React.Component {
           to={item.path}
           disablePadding
           style={{ color: "#555555", paddingLeft: "20px" }}
-          onClick={() => this.handleClick(item)}
+          onClick={() => titleChange(item.title)}
         >
           <ListItemButton>
             <ListItemIcon>{item.icon}</ListItemIcon>
@@ -57,84 +67,66 @@ export default class Navbar extends React.Component {
     </Box>
   );
 
-  handleClick(item) {
-    this.props.titleChange(item.title);
-  }
-
-  handleUploadClick = async (e) => {
-    const file = e.target.files[0];
-    const imageUrl = URL.createObjectURL(file);
-
-    const formData = new FormData();
-    formData.append("file", file);
-    formData.append("userid", "test2");
-
-    await ProfilePost("/api/user/profile", formData);
-
-    this.setState({ uploadedImage: imageUrl });
+  const buttonStyles = {
+    color: "white",
+    borderRadius: "50%",
+    minWidth: "40px",
+    minHeight: "40px",
+    padding: "0px",
+    backgroundColor: "rgba(170, 170, 170, 0.5)",
+    "&:hover": {
+      backgroundColor: "rgba(125, 125, 125, 0.5)",
+      boxShadow: "none",
+    },
+    "&:active": {
+      boxShadow: "none",
+      backgroundColor: "rgba(30, 30, 30, 0.5)",
+    },
   };
 
-  render() {
-    return (
-      <div className="settingMain">
-        <div className="profile">
-          <img
-            className="profileImage"
-            width="100%"
-            src={this.state.uploadedImage}
-          />
-          <div className="profilebtn">
-            <Button
-              variant="contained"
-              component="label"
-              sx={{
-                color: "white",
-                borderRadius: "50%",
-                minWidth: "40px",
-                minHeight: "40px",
-                padding: "0px",
-                backgroundColor: "rgb(170,170,170,0.5)",
-                "&:hover": {
-                  backgroundColor: "rgb(125,125,125,0.5)",
-                  boxShadow: "none",
-                },
-                "&:active": {
-                  boxShadow: "none",
-                  backgroundColor: "rgb(30,30,30,0.5)",
-                },
-              }}
-            >
-              <BorderColorOutlinedIcon />
-              <input
-                accept="image/*"
-                type="file"
-                hidden
-                onChange={this.handleUploadClick}
-              />
-            </Button>
-          </div>
+  return (
+    <div className="settingMain">
+      <div className="profile">
+        <img className="profileImage" width="100%" src={uploadedImage} alt="" />
+        <div className="profilebtn">
+          <Button variant="contained" component="label" sx={buttonStyles}>
+            <BorderColorOutlinedIcon />
+            <input
+              accept="image/*"
+              type="file"
+              hidden
+              onChange={handleUploadClick}
+            />
+          </Button>
         </div>
-        <Drawer
-          open={this.state.open}
-          PaperProps={{
-            style: {
-              position: "absolute",
-              width: "300px",
-              marginTop: "12vh",
-            },
-          }}
-          variant="permanent"
-          anchor="left"
-        >
-          {this.sideList()}
-        </Drawer>
-
-        <Routes>
-          <Route path="/setting/profile" element={<Profile />} />
-          <Route path="/setting/personal" element={<Personal />} />
-          <Route path="/setting/friend" element={<Friend />} />
-        </Routes>
       </div>
-    );
-  }
-}
+      <Drawer
+        open={open}
+        PaperProps={{
+          style: {
+            position: "absolute",
+            width: "300px",
+            marginTop: "12vh",
+            border: "none",
+            padding: "0",
+            height: "50%",
+          },
+        }}
+        variant="permanent"
+        anchor="left"
+      >
+        {sideList}
+      </Drawer>
+
+      <Routes>
+        <Route
+          path="/setting/personal"
+          element={<Personal handleClose={handleClose} />}
+        />
+        <Route path="/setting/friend" element={<Friend />} />
+      </Routes>
+    </div>
+  );
+};
+
+export default Navbar;

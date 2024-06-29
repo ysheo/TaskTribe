@@ -20,9 +20,9 @@ export class User {
   @Column({ type: 'varchar', length: 10 })
   regnum: string;
 
-  @Column({ type: 'varchar', length: 50 })
+  @Column({ type: 'varchar', length: 50, nullable: true })
   nickname: string;
 
-  @Column({ type: 'text' })
+  @Column({ type: 'text', nullable: true })
   profile: string;
 }
