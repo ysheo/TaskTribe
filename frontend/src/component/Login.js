@@ -4,7 +4,12 @@ const Login = () => {
     const navigate = useNavigate();
     return(
         <div className="Login">
-            <button onClick={()=> navigate('/join')}>회원가입</button>
+            <button 
+                onClick={()=> navigate('/join')}
+                style={{fontSize: "24px", padding: "10px 15px", border: "2px solid #888"}}
+            >
+                회원가입
+            </button>
         </div>
     )
 };

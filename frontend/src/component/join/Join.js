@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import '../../css/join.css'
 import { Post } from '../Fetch';
+import { useNavigate } from 'react-router-dom';
 
 const Join = () => {
 
+    const navigate = useNavigate();
     const [value, setValue] = useState({id: "", pw: "", pwCheck: "", email: "", name: "", regnumFront: "", regnumBack: ""});
     const [valid, setValid] = useState({id:false, pw:false, pwCheck:false, email:false});
     const [visiblePW, setVisiblePW] = useState({ pw1: false, pw2: false }); // 비밀번호 암호화 해제 상태
@@ -43,14 +45,16 @@ const Join = () => {
     const dupID = async() => {
         const json = {"userid": value.id};
         const result = await Post("/api/user/duplicate", json);
+        console.log(result);
     }
 
     //email 인증 및 중복확인
     const checkEmail = async() => {
         const json = { "email": value.email };
         const result = await Post("/api/user/email",json);
+        console.log(result);
     }
-
+    
     //회원가입
     const submitJoin = async() => {
         const json = {
@@ -58,10 +62,13 @@ const Join = () => {
             "password" : value.pw,
             "email": value.email,
             "name": value.name,
-            "regnum" : `${value.regnumFront} - ${value.regnumBack}`
+            "regnum" : `${value.regnumFront} - ${value.regnumBack}`,
+            // "nickname" : ,
         };
         const result = await Post("/api/user",json);
         alert('가입이 완료되었습니다.')
+        navigate('/');
+        console.log(result);
     }
 
     return(
@@ -74,7 +81,7 @@ const Join = () => {
                         <h5>아이디</h5>
                         <div>
                             <div>
-                                <input type='text' name="idInput" id="idInput" value={value.id} onChange={(e) => handleValid(e, 'id')} title="아이디 입력" required />
+                                <input type='text' name="idInput" id="idInput" value={value.id} onChange={(e) => handleValid(e, 'id')} title="아이디 입력" />
                                 <span className="material-symbols-outlined" style={valid.id ? {color:'#32AC72'} : {}}>check_circle</span>
                             </div>
                             <div className='warn_box'>
@@ -93,7 +100,7 @@ const Join = () => {
                         <h5>비밀번호</h5>
                         <div>
                             <div>
-                                <input type={visiblePW.pw1?'text':'password'} name="pwInput" id="pwInput" value={value.pw} onChange={(e) => handleValid(e, 'pw')} title="비밀번호 입력" required/>
+                                <input type={visiblePW.pw1?'text':'password'} name="pwInput" id="pwInput" value={value.pw} onChange={(e) => handleValid(e, 'pw')} title="비밀번호 입력" />
                                 <span className="material-symbols-outlined" onClick={()=>handleVisiblePW('pw1')}>{visiblePW.pw1?'visibility':'visibility_off'}</span>
                             </div>
                             <div className='warn_box'>
@@ -111,7 +118,7 @@ const Join = () => {
                         <h5>비밀번호 확인</h5>
                         <div>
                             <div>
-                                <input type={visiblePW.pw2?'text':'password'} name="pwCheckInput" id="pwCheeckInput" value={value.pwCheck} onChange={(e)=>handleValid(e, "pwCheck")} title="비밀번호 확인" required/>
+                                <input type={visiblePW.pw2?'text':'password'} name="pwCheckInput" id="pwCheeckInput" value={value.pwCheck} onChange={(e)=>handleValid(e, "pwCheck")} title="비밀번호 확인" />
                                 <span className="material-symbols-outlined">check_circle</span>
                                 <span className="material-symbols-outlined" onClick={()=>handleVisiblePW('pw2')}>{visiblePW.pw2?'visibility':'visibility_off'}</span>
                             </div>
@@ -127,7 +134,7 @@ const Join = () => {
                         <h5>이메일</h5>
                         <div>
                             <div>
-                                <input type='text' name="emailInput" id="emailInput" value={value.email} onChange={(e) => handleValid(e, 'email')} title="이메일 입력" required/>
+                                <input type='text' name="emailInput" id="emailInput" value={value.email} onChange={(e) => handleValid(e, 'email')} title="이메일 입력" />
                             </div>
                             <div className='warn_box'>
                                 <p className='success' style={valid.email === true ?{display:'block'} : {}}>사용 가능한  이메일입니다.</p>
