@@ -1,8 +1,8 @@
 import './App.css';
 import React from "react";
-import Login from "./Login";
-import Join from "./join/Join";
-import Main from "./Main";
+import Login from "./component/Login";
+import Join from "./component/join/Join";
+import Main from "./component/Main";
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
