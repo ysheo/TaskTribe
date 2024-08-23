@@ -2,7 +2,7 @@
   "name": "login",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://port-0-tasktribe-jvpb2alncnc985.sel5.cloudtype.app/",
+  "proxy": "http://localhost:3000",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",

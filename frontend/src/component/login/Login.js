@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import { FaUser } from "react-icons/fa";
 import { RiLockPasswordLine } from "react-icons/ri";
-import { useNavigate } from "react-router-dom";
-// import { Post } from "./fetch";
+import { useNavigate, useRouteLoaderData } from "react-router-dom";
+import { Post } from "./fetch";
 
-const User = {
-  id: "test",
-  pw: "test1234!@",
-};
+// const User = {
+//   id: "test1",
+//   pw: "123123",
+// };
 
 const Login = () => {
 
@@ -21,9 +21,10 @@ const Login = () => {
 
   //추후 ID 쿼리를 받아올 수 있도록 수정할 것
   const handleId = (e) => {
-    setId(e.target.value);
+    const value =e.target.value;
+    setId(value);
     const regex = /^[a-zA-Z0-9]*$/;
-    if (regex.test(id)) {
+    if (regex.test(value)) {
       setIdValid(true);
     } else {
       setIdValid(false);
@@ -32,23 +33,40 @@ const Login = () => {
 
   //추후 PW 쿼리를 받아올 수 있도록 수정할 것
   const handlePw = (e) => {
-    setPw(e.target.value);
+    const value =e.target.value;
+    setPw(value);
     const regex =
-      /^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+])(?!.*[^a-zA-z0-9$`~!@$!%*#^?&\\(\\)\-_=+]).{8,20}$/;
-    if (regex.test(pw)) {
+    ///^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+])(?!.*[^a-zA-z0-9$`~!@$!%*#^?&\\(\\)\-_=+]).{8,20}$/;
+    /^(?=.*[a-zA-z0-9]).{5,20}$/;
+    if (regex.test(value)) {
       setPwValid(true);
     } else {
       setPwValid(false);
     }
   };
 
-  const onClickConfirmButton = () => {
-    if (id === User.id && pw === User.pw) {
+  const onClickConfirmButton = async (e) => {
+    e.preventDefault();
+    const body = {
+      userid: id,
+      password: pw
+    };
+
+   
+      const validCheck = await Post("/api/auth/login", body);
+      console.log(id);
+      console.log(idValid);
+      console.log(pwValid);
+      console.log(validCheck);
+
+    if (id === idValid && pw === pwValid) {
       alert("로그인에 성공했습니다.");
+      navigate("/dashboard"); // 로그인 성공 시 이동할 페이지
     } else {
       alert("등록되지 않은 회원입니다.");
     }
-  };
+  }
+  
 
   useEffect(() => {
     if (idValid && pwValid) {
@@ -61,7 +79,7 @@ const Login = () => {
   return (
     <div className="loginbound">
       <h3>로그인</h3>
-      <form className="login_Person" action="#" method="post">
+      <form className="login_Person" action="#" method="Post">
         <fieldset>
           <div className="idinputbox">
             <FaUser className="icon" />
@@ -111,6 +129,13 @@ const Login = () => {
           >
             로그인
           </button>
+
+{/*           <button
+            onClick={onClickConfirmButton}
+            className="test"
+          >
+            임시버튼
+          </button> */}
         </div>
 
         <fieldset>

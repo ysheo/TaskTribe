@@ -23,8 +23,11 @@ export class UserController {
   // 아이디 기준으로 회원 조회
   @Get('/:userid')
   async getUser(@Param('userid') userid: string) {
+    console.log("test : " );
+    console.log("test : " ,userid);
     const user = await this.userService.getUser(userid);
     console.log(user);
+    console.log("test : " );
     return user;
   }
 
